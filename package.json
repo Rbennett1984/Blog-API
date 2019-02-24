@@ -1,0 +1,24 @@
+{
+  "name": "blog_api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Router.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rbennett1984/Blog-API-Express-Router.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rbennett1984/Blog-API-Express-Router/issues"
+  },
+  "homepage": "https://github.com/Rbennett1984/Blog-API-Express-Router#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "uuid": "^3.3.2"
+  }
+}

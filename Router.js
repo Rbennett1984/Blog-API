@@ -3,24 +3,33 @@ const router = express.Router();
 
 const { BlogPosts } = require("./models");
 
-// convenience function for generating lorem text for blog
+//  function for generating filler text for blog
 // posts we initially add below
-function lorem() {
+function camelot() {
   return (
-    "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod " +
-    "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, " +
-    "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo " +
-    "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse " +
-    "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non " +
-    "proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    "Well, Mercia's a temperate zone!" +
+"He hasn't got shit all over him. Shh! Knights, I bid you welcome to your new home. Let us ride to Camelot! The nose? A newt?" +
+
+"I'm not a witch." +
+"The Knights Who Say Ni demand a sacrifice!" +
+"Bloody Peasant!" +
+"A newt?" +
+"But you are dressed as one… Bloody Peasant! And the hat. She's a witch! Why?" + 
+"The swallow may fly south with the sun, and the house martin or the plover may seek warmer climes in winter," + 
+"yet these are not strangers to our land." +
+
+"Look, my liege!" +
+"Shut up! Will you shut up?!" +
+"Burn her!"
   );
 }
 
 // seed some posts so initial GET requests will return something
-BlogPosts.create("10 things -- you won't believe #4", lorem(), "Billy Bob");
-BlogPosts.create("Lions and tigers and bears oh my", lorem(), "Lefty Lil");
+BlogPosts.create("What do you mean? You don't vote for kings.", camelot(), "Mercia");
+BlogPosts.create("Camelot! Burn her! What a strange person.", camelot(), "Knights of Ni");
 
-// add endpoint for GET. It should call `BlogPosts.get()`
+//endpoint for GET. 
+// call to `BlogPosts.get()`
 // and return JSON objects of stored blog posts.
 // send back JSON representation of all blog posts
 // on GET requests to root
