@@ -3,8 +3,7 @@ const router = express.Router();
 
 const { BlogPosts } = require("./models");
 
-//  function for generating filler text for blog
-// posts we initially add below
+
 function camelot() {
   return (
     "Well, Mercia's a temperate zone!" +
@@ -28,23 +27,14 @@ function camelot() {
 BlogPosts.create("What do you mean? You don't vote for kings.", camelot(), "Mercia");
 BlogPosts.create("Camelot! Burn her! What a strange person.", camelot(), "Knights of Ni");
 
-//endpoint for GET. 
-// call to `BlogPosts.get()`
-// and return JSON objects of stored blog posts.
-// send back JSON representation of all blog posts
-// on GET requests to root
+
 router.get("/", (req, res) => {
   res.json(BlogPosts.get());
 });
 
-// add endpoint for POST requests, which should cause a new
-// blog post to be added (using `BlogPosts.create()`). It should
-// return a JSON object representing the new post (including
-// the id, which `BlogPosts` will create. This endpoint should
-// send a 400 error if the post doesn't contain
-// `title`, `content`, and `author`
+
 router.post("/", (req, res) => {
-  // ensure `name` and `budget` are in request body
+ 
   const requiredFields = ["title", "content", "author"];
   for (let i = 0; i < requiredFields.length; i++) {
     const field = requiredFields[i];
@@ -62,12 +52,7 @@ router.post("/", (req, res) => {
   res.status(201).json(item);
 });
 
-// add endpoint for PUT requests to update blogposts. it should
-// call `BlogPosts.update()` and return the updated post.
-// it should also ensure that the id in the object representing
-// the post matches the id of the path variable, and that the
-// following required fields are in request body: `id`, `title`,
-// `content`, `author`, `publishDate`
+
 router.put("/:id", (req, res) => {
   const requiredFields = ["id", "title", "content", "author", "publishDate"];
   for (let i = 0; i < requiredFields.length; i++) {
